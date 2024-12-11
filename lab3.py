@@ -102,8 +102,7 @@ class Handler(State):
             self.FSM.char.active_request = self.FSM.char.requests.pop(0)
 
 
-##============================================
-# Finite State Machine
+
 class FSM(object):
     def __init__(self, character):
         self.char = character
@@ -131,8 +130,7 @@ class FSM(object):
             self.trans = None
         self.curState.Execute()
 
-##============================================
-# Elevator Character
+
 class Elevator:
     def __init__(self, current_floor, floors, elevator_id):
         self.current_floor = current_floor
