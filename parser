@@ -1,0 +1,24 @@
+parser grammar ExprParser;
+options { tokenVocab=ExprLexer; }
+
+tree:
+    program* EOF;
+
+program
+    : includesAction
+    | canPerformAction
+    | canControlObject
+    | mustWhen
+    | precedesAction
+    ;
+
+includesAction : ID INCLUDE list_id;
+list_id: ID (COMMA ID)* ;
+
+canPerformAction : ID CAN list_id;
+
+canControlObject : ID CONTROL list_id;
+
+precedesAction : ID PRECEDE ID;
+
+mustWhen : ID MUST ID WHEN ID;

@@ -1,0 +1,13 @@
+SpaceShip can Move, Rotate, Shoot, BeDestroyed, Respawn;
+Player control Spaceship
+
+Move includes StartMove, StopMove;
+StartMove include MoveCommand, BurnFuelCommand;
+MoveCommand precede BurnFuelCommand;
+Rotate includes StartRotate, StopRotate;
+StartRotate include RotateCommand;
+
+Game must CheckFuel when Move;
+Game must CheckCollision when Move;
+CheckCollision precede BeDestroyed;
+BeDestroyed precede Respawn;
